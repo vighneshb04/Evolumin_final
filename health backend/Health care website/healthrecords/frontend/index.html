@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Uploader</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .normal { color: black; }
+        .above-normal { color: red; font-weight: bold; }
+        .below-normal { color: green; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; text-align: left; border: 1px solid #ddd; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="images/logo.jpeg" alt=""></div>
+        <div class="emergency">
+            <h3><a href="tel:+917012091461">Emergency: +91 7012091461</a></h3>
+            <h3><a href="tel:+917012091461">Ambulance: +91 7012091461</a></h3>
+        </div>
+        <nav class="navbar">
+            <a href="../Main page(index)/index.html">Home</a>
+            <a href="#service">Service</a>
+            <a href="#tips">Tips</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="right-icons">
+            <div id="menu-bars" class="fas fa-bars"></div>
+            <div class="btn" >Login</div>
+        </div>
+    </header>
+    <h1>Upload a PDF File</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" accept="application/pdf" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <button id="viewReports">View Abnormal Reports</button>
+    <div id="reportsTable"></div>
+    
+    <footer>
+        <h3>Explore, Innovate, and Transform Your Healthcare Experience</h3>
+        <div class="right">
+            <div class="links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="#about">About Us</a>
+                <a href="faq.html">FAQs</a>
+                <a href="mailto:vighesh.b@gmail.com">Email</a>
+            </div>
+            <div class="social">
+                <a href="https://www.instagram.com/your-instagram-profile" target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.facebook.com/your-facebook-page" target="_blank"><i class='bx bxl-facebook-square'></i></a>
+                <a href="https://github.com/your-github-profile" target="_blank"><i class='bx bxl-github'></i></a>
+            </div>
+            <p>Copyright © 2024 Nexus Forge, All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('uploadForm');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const response = await fetch('/process', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            console.log('Response:', data);
+        });
+
+        document.getElementById('viewReports').addEventListener('click', async () => {
+            const response = await fetch('/view-abnormal-reports');
+            const reports = await response.json();
+
+            const tableContent = reports.map(report => `
+                <tr>
+                    <td>${report.test}</td>
+                    <td>${report.method}</td>
+                    <td>${report.specimen}</td>
+                    <td>${report.value} ${report.unit}</td>
+                    <td>${new Date(report.date).toLocaleDateString()}</td>
+                </tr>
+            `).join('');
+
+            document.getElementById('reportsTable').innerHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Method</th>
+                            <th>Specimen</th>
+                            <th>Value</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>${tableContent}</tbody>
+                </table>
+            `;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMBULANCE BOOKING</title>
+    <link rel="stylesheet" href="abubook.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-rounded/css/uicons-thin-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="images/logo.jpeg" alt="Ambulance Logo"></div>
+        <div class="emergency">
+            <h3><a href="tel:+917012091461">Emergency: +91 7012091461</a></h3>
+            <h3><a href="tel:+917012091461">Ambulance: +91 7012091461</a></h3>
+        </div>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#service">Service</a>
+            <a href="#founders">Founders</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="right-icons">
+            <div id="menu-bars" class="fas fa-bars"></div>
+            <button class="btn">Login</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="background">
+            <div class="container">
+                <h2>Book an Ambulance</h2>
+                <form id="booking-form">
+                    <input type="text" id="mobile" placeholder="Mobile Number" required>
+                    <button type="button" class="btn-secondary" onclick="getLocation()">Get Location</button>
+                    <input type="hidden" id="location">
+                    <button type="submit" class="btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="abuscript.js"></script>
+</body>
+</html>

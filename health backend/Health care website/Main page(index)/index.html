@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Care Website</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style1.css">
+
+</head>
+<body> 
+
+    <header>
+        
+        <div class="logo"><img src="images/logo1.png" alt=""></div>
+        <div class="emergency">
+            <h3><a href="tel:+917012091461">Emergency: +91 7012091461</a></h3>
+            <h3><a href="tel:+917012091461">Ambulance: +91 7012091461</a></h3>
+        </div>
+
+
+        <nav class="navbar">
+            <a href="../Main page(index)/index.html">Home</a>
+            <a href="#service">Service</a>
+            <a href="#tips">Tips</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="right-icons">
+            <div id="menu-bars" class="fas fa-bars"></div>
+            <div class="btn" >Login</div>
+        </div>
+
+    </header>
+
+   
+
+    <div class="main-home" id="home">
+        <div class="home">
+            <div class="slider">
+                <div class="list">
+                    <div class="item">
+                        <img src="images/ambulance.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="images/bot.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="images/doconline.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="images/phar.png" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="images/LAB.png" alt="">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="prev"></button>
+                    <button id="next">></button>
+                </div>
+                <ul class="dots" id="service">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        
+            <script src="app.js"></script>
+            
+           
+        </div>
+    </div>
+    
+    
+
+    <div id="service"class="our-service" >
+        <div class="service-heading">
+            <h2>Public Services</h2>
+        </div>
+
+        <div class="main-services">
+            <div class="inner-services">
+                <div class="service-icon">
+                    <i class="fa-solid fa-truck-medical"></i>
+                </div>
+                <a style="color: black;" href="/abulancebooking/abubook.html">
+                <h3>Ambulance Booking</h3></a>
+                <p>Our advanced ambulance booking system ensures that emergency medical services can be dispatched quickly and efficiently to those in need, reducing response times and saving lives.</p>
+            </div>
+
+            <div class="inner-services">
+                <div class="service-icon">
+                    <i class="fa-regular fa-hospital"></i>
+                </div>
+                <a style="color: black;" href="alterts/alert.html">
+                <h3>Alerts</h3>
+                <p>0ur system delivers instant alerts regarding isolation protocols and requirements. This helps  individuals effectively manage outbreaks, reduce transmission risks, and to safeguard the community health.</p>
+            </a>
+            </div>
+
+
+            <div class="inner-services" >
+                <div class="service-icon">
+                    <i class="fa fa-user-md"></i>
+                </div>
+                <a style="color: black;" href="../DoctorBooking/docbook.html"></a>
+                <h3>Doctor Appointments</h3>
+                <p>Doctor appointment booking provides a seamless and convenient way for patients to connect with healthcare professionals.You can schedule appointments with qualified doctors and get the better consultation. </p>
+            </div>
+
+            <div id="tips" ></div>
+            </div>
+
+        </div>
+        
+    </div>
+    
+    <div id="tips" class="service-heading" >
+        <h2>HealthCare Essential Tips </h2>
+    </div>
+    <!--
+    <div class="inner-services">
+        
+        
+        <a style="color: black;" href="../Patient Info sharing/m.html"></a>
+        <h3 style="font-size: xx-large;text-align: center; color: rgb(243, 101, 13);padding-bottom: 30px;">Hygiene Tips </h3>
+        <div class="hygiene">
+        <img src="images/hygine1.jpg">
+        <img src="images/hygine2.jpg">
+    </div>
+    </div>
+
+    -->
+    <div class="inner-services">
+        <a style="color: black;" href="../Patient Info sharing/m.html"></a>
+        <h3 style="font-size: xx-large; text-align: center; color: rgb(243, 101, 13); padding-bottom: 30px;">Emergency Immediate Tips</h3>
+        <div class="hygiene">
+            <img src="images/cpr.jpg" width="400" height="auto" alt="Snake Image">
+            <img src="images/chock.jpg" width="400" height="auto" alt="Asthma Image">
+        </div>
+    </div>
+    
+    
+    <div class="inner-services">
+        <a style="color: black;" href="../Patient Info sharing/m.html"></a>
+        <h3 style="font-size: xx-large; text-align: center; color: rgb(243, 101, 13); padding-bottom: 30px;">Environmental Tips</h3>
+        <div class="hygiene">
+            <img src="images/snake.jpg" width="500" height="auto" alt="Snake Image">
+            <img src="images/asthma.jpg" width="500" height="auto" alt="Asthma Image">
+        </div>
+    </div>
+    
+
+    
+
+
+    <div id="news" ></div>
+        <div class="main-review" >
+            <section id="blog">
+                <!--blog-heading--------------->
+                <div class="blog-heading" style="font-size: x-large;">
+                  <span>Recent</span>
+                  <h3>Health News</h3>
+                </div>
+          
+          
+                <!--container---------------->
+                <div class="blog-container">
+          
+                  <!--box-1------------->
+                  <div class="blog-box">
+          
+                    <!--img---->
+                    <div class="blog-img">
+                      <img alt="blog" src="images/cardio.png">
+                    </div>
+                    <!--text--->
+                    <div class="blog-text">
+                      <span>18 July 2021 / Cardiology</span>
+                      <a href="#" class="blog-title">Emerging Therapies in Interventional Cardiology</a>
+                      <p>The field of interventional cardiology continues to rapidly evolve, reshaping the future of heart disease treatment. Minimally invasive techniques are giving patients a new lease on life by offering better outcomes and quicker recovery times. For patients and their famil...</p>
+                      <a href="https://health.economictimes.indiatimes.com/news/industry/emerging-therapies-in-interventional-cardiology/113783260?utm_source=exclusives_listing&utm_medium=exclusiveNews" target="_main">Read More</a>
+                    </div>
+          
+                  </div>
+          
+          
+          
+          
+                  <!--box-2------------->
+                  <div class="blog-box">
+          
+                    <!--img---->
+                    <div class="blog-img">
+                      <img alt="blog" src="images/aihealth.jpg">
+                    </div>
+                    <!--text--->
+                    <div class="blog-text">
+                      <span>18 July 2021 / AI in Health</span>
+                      <a href="#" class="blog-title">Artificial Intelligence and healthcare : Legal risks and mitigation strategies</a>
+                      <p>One of the key issues facing AI arises from the limitations of uploading data into its algorithm for ML. As the quality of AI depends upon the quality of data used to train, the risk of data inputs being...</p>
+                      <a href="https://health.economictimes.indiatimes.com/news/industry/artificial-intelligence-ai-and-healthcare-legal-risks-and-mitigation-strategies/114081301?utm_source=exclusives_listing&utm_medium=exclusiveNews"target= "_main">Read More</a>
+                    </div>
+          
+                  </div>
+          
+          
+          
+          
+                  
+                  <div class="blog-box">
+          
+                    
+                    <div class="blog-img">
+                      <img alt="blog" src="images/cancer.png">
+                    </div>
+                    
+                    <div class="blog-text">
+                      <span>18 July 2021 / Cancer Care</span>
+                      <a href="#" class="blog-title">Telesurgery: Transforming the Landscape of Cancer Care</a>
+                      <p>During a tele-surgery, the surgeon operates from a remote location, manipulating robotic arms with precision through real-time feedback systems....</p>
+                      <a href="https://health.economictimes.indiatimes.com/news/industry/telesurgery-transforming-the-landscape-of-cancer-care/114377239?utm_source=exclusives_widget&utm_medium=homepage"target="_main">Read More</a>
+                    </div>
+          
+                  </div>
+          
+                </div>
+          
+              </section>
+        </div>
+    
+<div id="contact"></div>
+
+
+    <footer>
+        <h3>Explore, Innovate, and Transform Your Healthcare Experience</h3>
+        <div class="right">
+            <div class="links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="#about">About Us</a>
+                <a href="faq.html">FAQs</a>
+                <a href="mailto:vighesh.b@gmail.com">Email</a>
+
+            </div>
+            <div class="social">
+                <a href="https://www.instagram.com/your-instagram-profile" target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.facebook.com/your-facebook-page" target="_blank"><i class='bx bxl-facebook-square'></i></a>
+                <a href="https://github.com/your-github-profile" target="_blank"><i class='bx bxl-github'></i></a>
+            </div>
+            
+            <p>Copyright © 2024 Nexus Forge, All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        let currentIndex = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const totalSlides = slides.length;
+const slideInterval = 3000; // Delay time for automatic slide change
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+}
+
+function changeSlide(direction) {
+    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+    showSlide(currentIndex);
+}
+
+function autoSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+}
+
+// Start the automatic slide
+setInterval(autoSlide, slideInterval);
+
+    </script>
+    <div class="login-popup">
+        <div class="box">
+             <div class="img-area">
+                 <div class="img">
+                    
+                 </div>
+                 
+             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             <div class="form">
+                <div class="close">&times;</div>
+                <h1>Log In</h1>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control" id="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="rememberMe">
+                            Remember Me
+                        </label>
+                    </div>
+                    <button type="button" class="btn" onclick="login()">Log In</button>
+                </form>
+            </div>
+
+
+
+
+
+
+
+
+
+
+        </div>
+   </div>
+ 
+ <script src="script.js"></script>
+
+    
+
+
+    
+</body>
+</html>

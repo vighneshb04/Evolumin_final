@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --maincolor: #FD7014;
+    --secondcolor: #ba5009;
+    --thirdcolor: #ff954f;
+    --textcolor: #292929;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+    font-family: "Inter", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+/* Header Styling (Original - Unchanged) */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    width: 100%;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    z-index: 1000;
+    background-color: white !important;
+}
+
+.logo {
+    width: 150px;
+    margin-left: 12px;
+}
+
+.logo img {
+    width: 150%;
+    height: 150%;
+}
+
+.emergency {
+    position: absolute;
+    top: 0.5rem;
+    right: 7%;
+    color: #ff0000;
+    font-size: small;
+    display: inline-flex;
+    gap: 15px;
+}
+
+.emergency a {
+    color: #ff0000;
+}
+
+.emergency a:hover {
+    color: #8e0909;
+}
+
+.navbar a {
+    color: var(--textcolor);
+    font-size: 2rem;
+    margin: 1rem;
+    position: relative;
+    transition: 0.5s;
+}
+
+.navbar a:hover {
+    color: var(--maincolor);
+}
+
+.navbar a::after {
+    content: "";
+    background-color: var(--maincolor);
+    width: 0;
+    position: absolute;
+    height: 0.2rem;
+    left: 0;
+    margin-top: 0.5rem;
+    top: 100%;
+    transition: 0.5s;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+#menu-bars {
+    color: var(--textcolor);
+    font-size: 2.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    display: none;
+}
+
+#menu-bars:hover {
+    color: var(--maincolor);
+}
+
+.right-icons .btn {
+    padding: 1.2rem 2rem;
+    font-size: 1.7rem;
+    background: var(--maincolor);
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.right-icons .btn:hover {
+    background-color: var(--secondcolor);
+}
+
+/* Main Content Styling */
+body, html {
+    height: 100%;
+}
+
+.background {
+    background-image: url('images/abupic.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 400px;
+    width: 90%;
+}
+
+.container h2 {
+    color: #FD7014;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    transition: border 0.3s;
+}
+
+input:focus {
+    border: 2px solid #FD7014;
+}
+
+/* Button Styles */
+.btn-primary, .btn-secondary {
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Modify .btn-primary */
+.btn-primary {
+    background-color: #fc7e00; /* Light background */
+    color: #292929; /* Dark text */
+}
+
+.btn-primary:hover {
+    background-color: #ff5e00;
+}
+
+/* Modify .btn-secondary */
+.btn-secondary {
+    background-color: white; /* White background */
+    color: #FD7014; /* Orange text */
+    border: 2px solid #FD7014; /* Orange border */
+}
+
+.btn-secondary:hover {
+    background-color: #f2e7e7; /* Orange background on hover */
+     /* White text on hover */
+}
+@media (max-width: 768px) {
+    .container h2 {
+        font-size: 2rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}

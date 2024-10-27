@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        /* Styles for readonly fields */
+        input[readonly], select[readonly] {
+            background-color: #f0f0f0;
+            cursor: not-allowed;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const studentID = 'your_student_id_here'; // Replace with actual student ID or fetch dynamically
+
+            // Fetch patient data
+            fetch(`/patient-info/${studentID}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(patient => {
+                    // Populate form fields with patient data
+                    document.getElementById('firstName').value = patient.firstName;
+                    document.getElementById('lastName').value = patient.lastName;
+                    document.getElementById('sex').value = patient.sex;
+                    document.getElementById('dob').value = patient.dob.substring(0, 10); // Format Date
+                    document.getElementById('phoneNumber').value = patient.phoneNumber;
+                    document.getElementById('email').value = patient.email;
+                    document.getElementById('address-street').value = patient.address.street;
+                    document.getElementById('address-city').value = patient.address.city;
+                    document.getElementById('address-state').value = patient.address.state;
+                    document.getElementById('address-postalCode').value = patient.address.postalCode;
+                    document.getElementById('emergencyContact-firstName').value = patient.emergencyContact.firstName;
+                    document.getElementById('emergencyContact-lastName').value = patient.emergencyContact.lastName;
+                    document.getElementById('emergencyContact-relationship').value = patient.emergencyContact.relationship;
+                    document.getElementById('emergencyContact-phoneNumber').value = patient.emergencyContact.phoneNumber;
+                    document.getElementById('healthHistory').value = patient.healthHistory;
+                    document.getElementById('medications').value = patient.medications.join(', '); // Join array to string
+                })
+                .catch(error => {
+                    console.error('Error fetching patient data:', error);
+                });
+
+            // Handle form submission
+            document.getElementById('patientForm').addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent default form submission
+
+                const updatedData = {
+                    phoneNumber: document.getElementById('phoneNumber').value,
+                    email: document.getElementById('email').value,
+                    address: {
+                        street: document.getElementById('address-street').value,
+                        city: document.getElementById('address-city').value,
+                        state: document.getElementById('address-state').value,
+                        postalCode: document.getElementById('address-postalCode').value,
+                    },
+                    emergencyContact: {
+                        firstName: document.getElementById('emergencyContact-firstName').value,
+                        lastName: document.getElementById('emergencyContact-lastName').value,
+                        relationship: document.getElementById('emergencyContact-relationship').value,
+                        phoneNumber: document.getElementById('emergencyContact-phoneNumber').value,
+                    },
+                    healthHistory: document.getElementById('healthHistory').value,
+                    medications: document.getElementById('medications').value.split(',').map(item => item.trim()), // Convert string back to array
+                };
+
+                // Update patient data
+                fetch(`/patient-info/${studentID}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(updatedData),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(updatedPatient => {
+                    alert('Patient information updated successfully!');
+                    // Optionally, refresh the page or repopulate the form with updated data
+                })
+                .catch(error => {
+                    console.error('Error updating patient data:', error);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Patient Information</h1>
+    <form id="patientForm">
+        <input type="text" id="firstName" placeholder="First Name" readonly>
+        <input type="text" id="lastName" placeholder="Last Name" readonly>
+        <select id="sex" readonly>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+        <input type="date" id="dob" readonly>
+        <input type="text" id="phoneNumber" placeholder="Phone Number" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="address-street" placeholder="Street" required>
+        <input type="text" id="address-city" placeholder="City" required>
+        <input type="text" id="address-state" placeholder="State" required>
+        <input type="text" id="address-postalCode" placeholder="Postal Code" required>
+        <input type="text" id="emergencyContact-firstName" placeholder="Emergency Contact First Name" readonly>
+        <input type="text" id="emergencyContact-lastName" placeholder="Emergency Contact Last Name" readonly>
+        <input type="text" id="emergencyContact-relationship" placeholder="Relationship" readonly>
+        <input type="text" id="emergencyContact-phoneNumber" placeholder="Emergency Contact Phone Number" required>
+        <textarea id="healthHistory" placeholder="Health History" required></textarea>
+        <textarea id="medications" placeholder="Medications" required></textarea>
+        <button type="submit">Update Patient Info</button>
+    </form>
+</body>
+</html>
