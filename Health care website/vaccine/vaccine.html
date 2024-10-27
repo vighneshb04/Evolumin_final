@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Lab Test & Vaccination Booking Portal</title>
+    <link rel="stylesheet" href="vaccine.css">
+</head>
+<body>
+    <header>
+        
+        <div class="logo"><img src="images/logo1.png" alt=""></div>
+        <div class="emergency">
+            <h3><a href="tel:+917012091461">Emergency: +91 7012091461</a></h3>
+            <h3><a href="tel:+917012091461">Ambulance: +91 7012091461</a></h3>
+        </div>
+
+
+        <nav class="navbar">
+            <a href="../Dashboard/dash.html">Home</a>
+            <a href="#service">Service</a>
+            <a href="#tips">Tips</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="right-icons">
+            <div id="menu-bars" class="fas fa-bars"></div>
+            <div class="btn" >Login</div>
+        </div>
+
+    </header>
+    <div class="booking-container">
+        <h1 class="title">University Health Portal</h1>
+        <p class="subtitle">Book Your Lab Test or Vaccination</p>
+        
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="step active" data-step="1">Step 1</div>
+            <div class="step" data-step="2">Step 2</div>
+            <div class="step" data-step="3">Step 3</div>
+        </div>
+        
+        <!-- Booking Form -->
+        <form class="booking-form" id="bookingForm">
+            <!-- Step 1: Personal Information -->
+            <div class="form-step active" data-step="1">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="studentId">Student ID</label>
+                <input type="text" id="studentId" name="studentId" placeholder="University ID" required>
+
+                <button type="button" class="next-btn">Next</button>
+            </div>
+
+            <!-- Step 2: Booking Details -->
+            <div class="form-step" data-step="2">
+                <label for="appointment">Choose Appointment</label>
+                <select id="appointment" name="appointment" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="lab">Lab Test</option>
+                    <option value="vaccination">Vaccination</option>
+                </select>
+
+                <label for="date">Choose Date</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Choose Time</label>
+                <input type="time" id="time" name="time" required>
+
+                <button type="button" class="prev-btn">Back</button>
+                <button type="button" class="next-btn">Next</button>
+            </div>
+
+            <!-- Step 3: Confirm Booking -->
+            <div class="form-step" data-step="3">
+                <h3>Confirm Booking</h3>
+                <p>Please review your details before submitting.</p>
+
+                <button type="button" class="prev-btn">Back</button>
+              <form onSubmit={onSubmit} class="row" action="mailto:vigheshb47@gmail.com" method="POST" encType="text/plain">
+    <button type="submit" class="submit-btn">Confirm Booking</button>
+</form>
+
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <footer>
+        <h3>Explore, Innovate, and Transform Your Healthcare Experience</h3>
+        <div class="right">
+            <div class="links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="#about">About Us</a>
+                <a href="faq.html">FAQs</a>
+                <a href="mailto:vighesh.b@gmail.com">Email</a>
+
+            </div>
+            <div class="social">
+                <a href="https://www.instagram.com/your-instagram-profile" target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.facebook.com/your-facebook-page" target="_blank"><i class='bx bxl-facebook-square'></i></a>
+                <a href="https://github.com/your-github-profile" target="_blank"><i class='bx bxl-github'></i></a>
+            </div>
+            
+            <p>Copyright © 2024 Nexus Forge, All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

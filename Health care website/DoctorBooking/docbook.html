@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+<body>
+    <header>
+        
+        <div class="logo"><img src="images/logo1.png" alt=""></div>
+        <div class="emergency">
+            <h3><a href="tel:+917012091461">Emergency: +91 7012091461</a></h3>
+            <h3><a href="tel:+917012091461">Ambulance: +91 7012091461</a></h3>
+        </div>
+
+
+        <nav class="navbar">
+            <a href="../Main page(index)/index.html">Home</a>
+            <a href="#service">Service</a>
+            <a href="#tips">Tips</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="right-icons">
+            <div id="menu-bars" class="fas fa-bars"></div>
+            <div class="btn" >Login</div>
+        </div>
+
+    </header>
+
+    <div class="container">
+        <h2>Book an Appointment</h2>
+        <form>
+            <!-- Doctor Selection -->
+            <div class="form-group">
+                <label for="doctor">Choose a Doctor</label>
+                <select id="doctor" name="doctor">
+                    <option>Select a Doctor</option>
+                    <option>Dr. John Doe</option>
+                    <option>Dr. Jane Smith</option>
+                    <option>Dr. Emily Johnson</option>
+                </select>
+                <i class="fas fa-user-md"></i>
+            </div>
+
+            <!-- Date Selection -->
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" placeholder="DD-MM-YYYY">
+                <!--<i class="fas fa-calendar-alt"></i> -->
+            </div>
+
+            <!--  Time Selection -->
+            <div class="form-group">
+                <label for="time">Time</label>
+                <input type="time" id="time" name="time">
+                
+            </div>
+
+            <!-- Symptoms -->
+            <div class="form-group">
+                <label for="symptoms">Symptoms</label>
+                <textarea id="symptoms" name="symptoms" placeholder="Enter your symptoms here"></textarea>
+                
+            </div>
+
+            <form 
+            onSubmit={onSubmit} 
+            class="row" 
+            action="mailto:vighneshb47@gmail.com" 
+            method="POST" 
+            encType="text/plain"
+        >
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+    <footer>
+        <h3>Explore, Innovate, and Transform Your Healthcare Experience</h3>
+        <div class="right">
+            <div class="links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="#about">About Us</a>
+                <a href="faq.html">FAQs</a>
+                <a href="mailto:vighesh.b@gmail.com">Email</a>
+
+            </div>
+            <div class="social">
+                <a href="https://www.instagram.com/your-instagram-profile" target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.facebook.com/your-facebook-page" target="_blank"><i class='bx bxl-facebook-square'></i></a>
+                <a href="https://github.com/your-github-profile" target="_blank"><i class='bx bxl-github'></i></a>
+            </div>
+            
+            <p>Copyright © 2024 Nexus Forge, All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('bookingForm').addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(event.target); // Capture form data
+        formData.append("access_key", "b8b9dac1-b4bd-4893-afd5-066d75b323fe");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            if (response.ok) {
+                alert("Booking confirmed! Thank you."); // Confirmation alert
+                event.target.reset(); // Reset the form
+                currentStep = 0; // Reset to the first step
+                updateFormSteps(); // Update the UI
+            } else {
+                alert("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("Submission failed. Please check your connection and try again.");
+        }
+    });
+
+    updateFormSteps(); // Initialize the form steps display
+});
+
+    </script>
+</body>
+</html>

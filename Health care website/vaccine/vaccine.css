@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root{
+    --maincolor:#FD7014;
+    --secondcolor:#ba5009;
+    --thirdcolor:#ff954f;
+    --textcolor:#292929;
+}
+*{
+    margin:0; 
+    padding:0;
+    box-sizing: border-box;
+    outline: none; 
+    border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition:all .2s linear;
+    font-family: "Inter", sans-serif;
+    
+}
+body {
+        font-family: Arial, sans-serif;
+        background-image: url("images/bg.png");   
+        background-size:cover; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;    
+   
+    width: 100%;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    z-index: 1000;
+    background-color: white !important;
+
+}
+.logo{
+    width: 150px;
+    margin-left: 12px;
+    
+}
+.logo img{
+    width: 150%;
+    height: 150%;
+}
+.emergency{
+    
+    position: absolute;
+    top: 0.5rem;
+    right: 7%;
+    color: #ff0000;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: small;
+    display: inline-flex;
+    gap: 15px;
+}
+.emergency a {
+    color: #ff0000; 
+    text-decoration: none; 
+}
+
+.emergency a:hover {
+    color: #8e0909; 
+}
+
+.navbar a{
+    color: var(--textcolor);
+    font-size: 2rem;
+    margin: 1rem;
+    position: relative;
+    transition: 0.5s;
+}
+.navbar a:hover{
+    color: var(--maincolor);
+}
+
+.navbar a::after{
+    content: "";
+    background-color: var(--maincolor);
+    width: 0;
+    position: absolute;
+    height: 0.2rem;
+    left: 0;
+    margin-top: 0.5rem;
+    top: 100%;
+    transition: 0.5s;
+}
+.navbar a:hover::after{
+    width: 100%;
+}
+
+#menu-bars{
+    color: var(--textcolor);
+    font-size: 2.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+    display: none;
+}
+#menu-bars:hover{
+    color: var(--maincolor);
+}
+.right-icons .btn{
+
+    padding: 1.2rem 2rem;
+    font-size: 1.7rem;
+    background: var(--maincolor);
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.right-icons .btn:hover{
+    background-color: var(--secondcolor);
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 200px); 
+    padding: 10erm 7%; 
+}
+
+.booking-container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    padding: 100px 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    animation: fadeInUp 1s ease;
+    margin: 30px auto; /* Centers container */
+    margin-top: 150px;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.step {
+    width: 30%;
+    padding: 10px;
+    background: #ddd;
+    border-radius: 8px;
+    color: #666;
+    font-size: 14px;
+    transition: background 0.4s ease;
+}
+
+.step.active {
+    background: #ff9c2a;
+    color: #fff;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #bb9066;
+    box-shadow: 0 0 8px rgba(235, 112, 11, 0.903);
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.next-btn, .prev-btn {
+    background-color: #f07d12;
+    color: #fff;
+    width: 48%;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #a07543;
+    color: #fff;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: #ffb55a;
+}
+footer{
+    background-color: #c15107;
+    color: #fff;
+    padding: 100px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer h3{
+    font-size: 48px;
+}
+
+footer .right{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 26px;
+}
+
+footer .right .links{
+    display: flex;
+    gap: 30px;
+    font-size: large;
+}
+
+footer .right .links a{
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+footer .right .links a:hover{
+    color: #fff;
+}
+
+footer .right .social{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .right .social i{
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: #fff;
+}
+
+footer .right .social i:hover{
+    color: #f09c5f;
+}
+
+footer .right p{
+    font-size: 13px;
+    color: #ffffff;
+}
